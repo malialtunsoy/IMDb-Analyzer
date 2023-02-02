@@ -5,8 +5,8 @@
 ## How to run?
 - Type ```python3 IMDb_Analyzer.py <username> <IMDb rating page url> ```
 - ```<username>```: any username you want. It just store the data under this name.
-- ```<IMDb rating page url>```: The url starts with "https[]()://www.imdb.com/user/..." 
-e.g. "https://www.imdb.com/user/ur57861148/ratings"
+- ```<IMDb rating page url>```: The url starts with "https[]()://www[]().imdb.com/user/..." \
+e.g. "https://www.imdb.com/user/ur57861148/ratings" \
 ⚠️ Be sure that the rating page is public.
 
 ## How to make your rating page public?
