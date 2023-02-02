@@ -14,13 +14,26 @@
 
 
 ## How to run?
+##### For Analyzing Rating Page
 - Type ```python3 IMDb_Analyzer.py <username> <IMDb rating page url> ```
 - ```<username>```: any username you want. It just store the data under this name.
 - ```<IMDb rating page url>```: The url starts with "https[]()://www[]().imdb.com/user/..." \
 e.g. "https://www.imdb.com/user/ur57861148/ratings" \
 ⚠️ Be sure that the rating page is public.
 
-## How to make your rating page public?
+##### For Analyzing Watchlist Page
+- Type ```python3 IMDb_Analyzer.py <username> <IMDb watchlist page url> -wl```
+- ```<username>```: any username you want. It just store the data under this name.
+- ```<IMDb watchlist page url>```: The url starts with "https[]()://www[]().imdb.com/user/..." \
+e.g. "https://www.imdb.com/user/ur57861148/watchlist" \
+⚠️ Be sure that the watchlist page is public.
+
+##### If your data is already downloaded
+If you already complete the first and second step below. You can directly analyse and print your data. If your rating/watchlist page is updated run the line above.
+- Type ```python3 IMDb_Analyzer.py <username> ```
+- ```<username>```: any username you want. It just store the data under this name.
+
+## How to make your page public?
 - Open IMDb web page.
 - Go to account settings.
 - Go to privacy settings.
