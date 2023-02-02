@@ -2,7 +2,8 @@ import requests
 import json
 
 class AnalysisMaker:
-    def __init__(self, user):
+    def __init__(self, user, folderName):
+        self.folderName = folderName
         self.user = user
         self.rating_file = "rating-"+user
         self.time = 0
@@ -19,13 +20,13 @@ class AnalysisMaker:
     
     def makeAnalysis(self):
         rating = []
-        f = open("datas/"+self.rating_file, "r")
+        f = open(self.folderName+"/"+self.rating_file, "r")
         rating = json.load(f)
 
         for rate in rating:
             try:
                 id = rate["url"].split("/")[0]
-                f = open("datas/pieces/"+id,"r")
+                f = open(self.folderName+"/pieces/"+id,"r")
                 data = json.load(f)
                 title = data["title"]
 

@@ -3,7 +3,8 @@ import json
 import os 
 
 class PieceDownloader:
-    def __init__(self, user):
+    def __init__(self, user, folderName):
+        self.folderName = folderName
         self.user = user
         self.rating_file = "rating-"+user
 
@@ -94,18 +95,18 @@ class PieceDownloader:
     def downloadUserPieces(self):
         print("DOWNLOADING DATA OF PIECES:")
         rating = []
-        f = open("datas/"+self.rating_file, "r")
+        f = open(self.folderName+"/"+self.rating_file, "r")
         rating = json.load(f)
 
         pieces = []
 
         for piece in rating:
             id = piece["url"].split("/")[0]
-            if not os.path.exists(os.path.join(os.getcwd()+"/datas/pieces/", id)):
+            if not os.path.exists(os.path.join(os.getcwd()+"/"+self.folderName+"/pieces/", id)):
                 data = self.getPiece(piece["url"])
                 data = self.processData(data)
                 print(id, data["title"])
-                with open("datas/pieces/"+id,"w") as f:
+                with open(self.folderName+"/pieces/"+id,"w") as f:
                     f.write(json.dumps(data))
         print("DOWNLOAD FINISHED.")
         

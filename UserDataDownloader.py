@@ -3,9 +3,10 @@ import json
 
 class UserDataDownloader:
 
-    def __init__(self, user, user_url):
+    def __init__(self, user, user_url, folderName):
         self.location = "rating-"+user
         self.url = user_url
+        self.folderName = folderName
 
         self.rating = []
         self.ids = []
@@ -68,7 +69,7 @@ class UserDataDownloader:
             return a["name"]
         self.rating.sort(key= name)
         ratingObj = json.dumps(self.rating)
-        with open("datas/" + self.location,"w") as f:
+        with open(self.folderName+"/" + self.location,"w") as f:
             f.write(ratingObj)
 
         for x in self.rating:
