@@ -1,4 +1,11 @@
 # IMDb Analyzer
+#### It will analyse your ratings and report your:
+- Total watch time, movie watch time and series watch time.
+- Most watched genres
+- Most watched actors
+- Most watched directors
+- Countries of origin
+
 [![N|Solid](https://ia.media-imdb.com/images/M/MV5BMTk3ODA4Mjc0NF5BMl5BcG5nXkFtZTgwNDc1MzQ2OTE@._V1_.png)](https://www.imdb.com)
 
 
