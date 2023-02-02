@@ -10,12 +10,12 @@ class IMDb_Analayzer:
         self.user = user
         self.userURL = userURL
 
-        #userDataDownloader = UserDataDownloader(self.user, self.userURL)
+        userDataDownloader = UserDataDownloader(self.user, self.userURL)
         pieceDownloader = PieceDownloader(self.user)
         pieceDownloader.downloadUserPieces()
         analysisMaker = AnalysisMaker(self.user)
         analysisMaker.makeAnalysis()
         analysisMaker.printAnalysis()
 
-obj = IMDb_Analayzer(sys.argv[1], sys.argv[2])
+IMDb_Analayzer(sys.argv[1], sys.argv[2])
         
