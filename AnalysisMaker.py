@@ -1,11 +1,12 @@
 import requests
 import json
+from Constants import *
 
 class AnalysisMaker:
     def __init__(self, user, folderName):
         self.folderName = folderName
         self.user = user
-        self.rating_file = "rating-"+user
+        self.rating_file = RATING_FILE_NAME+user
         self.time = 0
         self.series = 0
         self.movies = 0
@@ -17,6 +18,9 @@ class AnalysisMaker:
         self.cast = {}
         self.directors = {}
         self.countries = {}
+        self.totalRating = 0
+        self.movieRating = 0
+        self.seriesRating = 0
     
     def makeAnalysis(self):
         rating = []
@@ -26,50 +30,53 @@ class AnalysisMaker:
         for rate in rating:
             try:
                 id = rate["url"].split("/")[0]
-                f = open(self.folderName+"/pieces/"+id,"r")
+                f = open(self.folderName+"/"+PIECES_STORAGE_FILE_NAME+"/"+id,"r")
                 data = json.load(f)
-                title = data["title"]
+                title = data[TITLE]
 
-                if data["isSeries"]:
-                    self.time += data["time"]
+                if data[IS_SERIES]:
+                    self.time += data[TIME]
                     self.series += 1
-                    self.seriesTime += data["time"]
+                    self.seriesTime += data[TIME]
+                    self.seriesRating += data[RATING]
                     #GENRE
-                    for genre in data["genres"]:
+                    for genre in data[GENRES]:
                         if genre in self.seriesGenres.keys():
                             self.seriesGenres[genre] += 1
                         else:
                             self.seriesGenres[genre] = 1
                 else:
-                    self.time += data["time"]
+                    self.time += data[TIME]
                     self.movies += 1
-                    self.movieTime += data["time"]
+                    self.movieTime += data[TIME]
+                    self.movieRating += data[RATING]
                     #GENRE
-                    for genre in data["genres"]:
+                    for genre in data[GENRES]:
                         if genre in self.movieGenres.keys():
                             self.movieGenres[genre] += 1
                         else:
                             self.movieGenres[genre] = 1
+                self.totalRating += data[RATING]
                 #GENRE
-                for genre in data["genres"]:
+                for genre in data[GENRES]:
                     if genre in self.genres.keys():
                         self.genres[genre] += 1
                     else:
                         self.genres[genre] = 1
                 #CAST
-                for actor in data["cast"]:
+                for actor in data[CAST]:
                     if actor in self.cast.keys():
                         self.cast[actor] += 1
                     else:
                         self.cast[actor] = 1
                 #DIRECTOR
-                for director in data["directors"]:
+                for director in data[DIRECTORS]:
                     if director in self.directors.keys():
                         self.directors[director] += 1
                     else:
                         self.directors[director] = 1
                 #COUNTRY
-                for country in data["countries"]:
+                for country in data[COUNTRIES]:
                     if country in self.countries.keys():
                         self.countries[country] += 1
                     else:
@@ -99,6 +106,9 @@ class AnalysisMaker:
         print("\n==== IMDb ANALYSIS OF " + (self.user).upper() + " ====")
         print(self.movies, "movies watched.")
         print(self.series, "series watched.")
+        print("Overall rating:", round(self.totalRating/(self.movies+self.series),1))
+        print("Overall movie rating:", round(self.movieRating/self.movies,1))
+        print("Overall series rating:", round(self.seriesRating/self.series,1))
         print("")
         print("=== TOTAL WATCH TIME ===")
         totalTime = self.convertTime(self.time)

@@ -1,10 +1,11 @@
 import requests
 import json
+from Constants import *
 
 class UserDataDownloader:
 
     def __init__(self, user, user_url, folderName):
-        self.location = "rating-"+user
+        self.location = RATING_FILE_NAME+user
         self.url = user_url
         self.folderName = folderName
 
