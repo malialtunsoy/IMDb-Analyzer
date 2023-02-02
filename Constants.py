@@ -10,6 +10,6 @@ CAST = "cast"
 DIRECTORS = "directors"
 COUNTRIES = "countries"
 
-DATA_FILE_NAME = "deneme"
+DATA_FILE_NAME = "data"
 RATING_FILE_NAME = "rating-"
 PIECES_STORAGE_FILE_NAME = "pieces"

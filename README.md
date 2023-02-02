@@ -5,6 +5,10 @@
 - Most watched actors
 - Most watched directors
 - Countries of origin
+- Overall rating of movies and series
+- Longest movie watched
+- Longest series watched
+- Series with most episodes
 
 [![N|Solid](https://ia.media-imdb.com/images/M/MV5BMTk3ODA4Mjc0NF5BMl5BcG5nXkFtZTgwNDc1MzQ2OTE@._V1_.png)](https://www.imdb.com)
 

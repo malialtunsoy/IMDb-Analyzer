@@ -1,3 +1,4 @@
+from re import T
 import requests
 import json
 from Constants import *
@@ -18,9 +19,19 @@ class AnalysisMaker:
         self.cast = {}
         self.directors = {}
         self.countries = {}
+
         self.totalRating = 0
         self.movieRating = 0
         self.seriesRating = 0
+
+        self.longestMovieDuration = 0
+        self.longestMovieName = ""
+
+        self.longestSeriesDuration = 0
+        self.longestSeriesName = ""
+
+        self.mostEpisodeCount = 0
+        self.mostEpisodeSeries = ""
     
     def makeAnalysis(self):
         rating = []
@@ -39,6 +50,13 @@ class AnalysisMaker:
                     self.series += 1
                     self.seriesTime += data[TIME]
                     self.seriesRating += data[RATING]
+                    if data[EPISODE_COUNT] > self.mostEpisodeCount:
+                        self.mostEpisodeCount = data[EPISODE_COUNT]
+                        self.mostEpisodeSeries = data[TITLE]
+
+                    if data[TIME] > self.longestSeriesDuration:
+                        self.longestSeriesDuration = data[TIME]
+                        self.longestSeriesName = data[TITLE]
                     #GENRE
                     for genre in data[GENRES]:
                         if genre in self.seriesGenres.keys():
@@ -50,6 +68,9 @@ class AnalysisMaker:
                     self.movies += 1
                     self.movieTime += data[TIME]
                     self.movieRating += data[RATING]
+                    if data[TIME] > self.longestMovieDuration:
+                        self.longestMovieDuration = data[TIME]
+                        self.longestMovieName = data[TITLE]
                     #GENRE
                     for genre in data[GENRES]:
                         if genre in self.movieGenres.keys():
@@ -102,10 +123,15 @@ class AnalysisMaker:
 
         return {"days":days, "hours":hours, "minutes":minutes}
 
+    def convertTimeToString(self, time):
+        return (str(time["days"]) + " days " + str(time["hours"])+" hours "+ str(time["minutes"])+" minutes")
+
     def printAnalysis(self):
         print("\n==== IMDb ANALYSIS OF " + (self.user).upper() + " ====")
         print(self.movies, "movies watched.")
         print(self.series, "series watched.")
+        print("")
+        print("=== RATINGS ===")
         print("Overall rating:", round(self.totalRating/(self.movies+self.series),1))
         print("Overall movie rating:", round(self.movieRating/self.movies,1))
         print("Overall series rating:", round(self.seriesRating/self.series,1))
@@ -119,6 +145,13 @@ class AnalysisMaker:
         print("=== SERIES WATCH TIME ===")
         seriesTime = self.convertTime(self.seriesTime)
         print(seriesTime["days"],"days", seriesTime["hours"], "hours", seriesTime["minutes"],"minutes")
+        print("")
+        print("=== LONGEST MOVIE YOU WATCHED ===")
+        print(self.longestMovieName, "-", self.convertTimeToString(self.convertTime(self.longestMovieDuration)))
+        print("=== LONGEST SERIES YOU WATCHED ===")
+        print(self.longestSeriesName, "-", self.convertTimeToString(self.convertTime(self.longestSeriesDuration)))
+        print("=== SERIES WITH MOST EPISODES ===")
+        print(self.mostEpisodeSeries, "-", self.mostEpisodeCount, "episodes")
 
         print("")
         print("====== FAVORITE GENRES TOTAL ======")

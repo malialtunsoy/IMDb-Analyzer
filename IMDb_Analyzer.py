@@ -14,7 +14,7 @@ class IMDb_Analayzer:
         dataDirectoryName = DATA_FILE_NAME
         
         self.createDataDirectory(dataDirectoryName)
-        #userDataDownloader = UserDataDownloader(self.user, self.userURL, dataDirectoryName)
+        userDataDownloader = UserDataDownloader(self.user, self.userURL, dataDirectoryName)
         pieceDownloader = PieceDownloader(self.user, dataDirectoryName)
         pieceDownloader.downloadUserPieces()
         analysisMaker = AnalysisMaker(self.user, dataDirectoryName)
