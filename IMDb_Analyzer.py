@@ -23,6 +23,7 @@ class IMDb_Analayzer:
     def createDataDirectory(self, folderName):
         if not os.path.exists(os.path.join(os.getcwd(),folderName)):
             os.makedirs(os.path.join(os.getcwd(),folderName))
+            os.makedirs(os.path.join(os.getcwd(),folderName+"/pieces"))
 
 
 IMDb_Analayzer(sys.argv[1], sys.argv[2])
