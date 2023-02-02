@@ -10,20 +10,20 @@ class IMDb_Analayzer:
     def __init__(self, user, userURL):
         self.user = user
         self.userURL = userURL
-        folderName = "data"
+        dataDirectoryName = "datas"
         
-        self.createDataDirectory(folderName)
-        userDataDownloader = UserDataDownloader(self.user, self.userURL, folderName)
-        pieceDownloader = PieceDownloader(self.user, folderName)
+        self.createDataDirectory(dataDirectoryName)
+        userDataDownloader = UserDataDownloader(self.user, self.userURL, dataDirectoryName)
+        pieceDownloader = PieceDownloader(self.user, dataDirectoryName)
         pieceDownloader.downloadUserPieces()
-        analysisMaker = AnalysisMaker(self.user, folderName)
+        analysisMaker = AnalysisMaker(self.user, dataDirectoryName)
         analysisMaker.makeAnalysis()
         analysisMaker.printAnalysis()
 
-    def createDataDirectory(self, folderName):
-        if not os.path.exists(os.path.join(os.getcwd(),folderName)):
-            os.makedirs(os.path.join(os.getcwd(),folderName))
-            os.makedirs(os.path.join(os.getcwd(),folderName,"pieces"))
+    def createDataDirectory(self, dataDirectoryName):
+        if not os.path.exists(os.path.join(os.getcwd(),dataDirectoryName)):
+            os.makedirs(os.path.join(os.getcwd(),dataDirectoryName))
+            os.makedirs(os.path.join(os.getcwd(),dataDirectoryName,"pieces"))
 
 
 IMDb_Analayzer(sys.argv[1], sys.argv[2])

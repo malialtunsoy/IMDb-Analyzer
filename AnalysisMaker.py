@@ -31,7 +31,6 @@ class AnalysisMaker:
                 title = data["title"]
 
                 if data["isSeries"]:
-                    #numOfEpisodes = data["props"]["pageProps"]["mainColumnData"]["episodes"]["episodes"]["total"]
                     self.time += data["time"]
                     self.series += 1
                     self.seriesTime += data["time"]

@@ -58,6 +58,8 @@ class PieceDownloader:
             avrTime = data["props"]["pageProps"]["aboveTheFoldData"]["runtime"]["seconds"]
             if data["props"]["pageProps"]["aboveTheFoldData"]["canHaveEpisodes"]:
                 numOfEpisodes = data["props"]["pageProps"]["mainColumnData"]["episodes"]["episodes"]["total"]
+                ret["avrgTime"] = avrTime
+                ret["episodeCount"] = numOfEpisodes
                 time += numOfEpisodes * avrTime
                 
             else:
