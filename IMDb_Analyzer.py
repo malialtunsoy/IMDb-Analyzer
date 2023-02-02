@@ -12,7 +12,7 @@ class IMDb_Analayzer:
         self.userURL = userURL
         folderName = "data"
         
-        self.createDataDirectory()
+        self.createDataDirectory(folderName)
         userDataDownloader = UserDataDownloader(self.user, self.userURL, folderName)
         pieceDownloader = PieceDownloader(self.user, folderName)
         pieceDownloader.downloadUserPieces()
