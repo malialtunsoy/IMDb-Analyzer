@@ -35,41 +35,52 @@ e.g. "https://www.imdb.com/user/ur57861148/ratings" \
 ```
 ==== IMDb ANALYSIS OF MALI ====
 662 movies watched.
-90 series watched.
+86 series watched.
+
+=== RATINGS ===
+Overall rating: 7.3
+Overall movie rating: 7.2
+Overall series rating: 8.2
 
 === TOTAL WATCH TIME ===
-218 days 16 hours 33 minutes
+190 days 2 hours 31 minutes
 === MOVIES WATCH TIME ===
 54 days 5 hours 38 minutes
 === SERIES WATCH TIME ===
-164 days 10 hours 55 minutes
+135 days 20 hours 53 minutes
+
+=== LONGEST MOVIE YOU WATCHED ===
+The Irishman - 0 days 3 hours 29 minutes
+=== LONGEST SERIES YOU WATCHED ===
+House - 5 days 9 hours 4 minutes
+=== SERIES WITH MOST EPISODES ===
+Friends - 234 episodes
 
 ====== FAVORITE GENRES TOTAL ======
 GENRE           PERCENTAGE(%) COUNT
-Drama           15.75         373
-Action          12.29         291
-Comedy          11.57         274
-Thriller        9.54          226
-Adventure       8.61          204
-Crime           7.81          185
-Sci-Fi          7.77          184
-Mystery         4.81          114
-Fantasy         4.77          113
-Romance         4.69          111
-Family          2.2           52 
-Biography       2.11          50 
-Animation       1.69          40 
-Horror          1.22          29 
-War             1.14          27 
-History         1.01          24 
-Music           0.84          20 
-Documentary     0.63          15 
+Drama           15.78         372
+Action          12.34         291
+Comedy          11.49         271
+Thriller        9.58          226
+Adventure       8.65          204
+Crime           7.85          185
+Sci-Fi          7.8           184
+Mystery         4.79          113
+Fantasy         4.79          113
+Romance         4.62          109
+Family          2.21          52 
+Biography       2.12          50 
+Animation       1.65          39 
+Horror          1.23          29 
+War             1.15          27 
+History         1.02          24 
+Music           0.85          20 
+Documentary     0.59          14 
 Sport           0.55          13 
-Musical         0.46          11 
+Musical         0.47          11 
 Western         0.34          8  
 Short           0.08          2  
 Talk-Show       0.04          1  
-Reality-TV      0.04          1  
 
 ====== FAVORITE MOVIE GENRES ======
 GENRE           PERCENTAGE(%) COUNT
@@ -99,25 +110,24 @@ Talk-Show       0.05          1
 
 ====== FAVORITE SERIES GENRES ======
 GENRE           PERCENTAGE(%) COUNT
-Drama           18.94         57 
-Comedy          10.3          31 
-Crime           9.97          30 
-Mystery         9.3           28 
-Thriller        9.3           28 
-Sci-Fi          8.64          26 
-Action          7.31          22 
-Adventure       4.98          15 
-Fantasy         4.65          14 
-Animation       3.32          10 
-Romance         3.32          10 
-Documentary     2.66          8  
-History         2.33          7  
-Biography       1.33          4  
-Family          1.33          4  
-War             1.0           3  
-Sport           0.66          2  
-Reality-TV      0.33          1  
-Horror          0.33          1  
+Drama           19.24         56 
+Crime           10.31         30 
+Thriller        9.62          28 
+Comedy          9.62          28 
+Mystery         9.28          27 
+Sci-Fi          8.93          26 
+Action          7.56          22 
+Adventure       5.15          15 
+Fantasy         4.81          14 
+Animation       3.09          9  
+Romance         2.75          8  
+History         2.41          7  
+Documentary     2.41          7  
+Biography       1.37          4  
+Family          1.37          4  
+War             1.03          3  
+Sport           0.69          2  
+Horror          0.34          1  
 
 ====== MOST WATCHED CAST ======
 #  ACTOR                          COUNT
@@ -187,7 +197,7 @@ Horror          0.33          1
 
 ====== MOST WATCHED COUNTRY PRODUCTION ======
 #  COUNTRY  COUNT
-1  US       538
+1  US       534
 2  GB       94 
 3  FR       24 
 4  DE       19 
